@@ -167,7 +167,7 @@ grammar.load()
 _NEXUS.merger.update_config()
 _NEXUS.merger.merge(MergeInf.BOOT)
 
-print("*- Starting " + settings.SOFTWARE_NAME + " -*")
+print("\n*- Starting " + settings.SOFTWARE_NAME + " Master -*")
 
 if settings.WSR:
     import pythoncom
