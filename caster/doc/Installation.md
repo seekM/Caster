@@ -49,19 +49,26 @@ Make sure to select `Add python to path`. This can be done manually by searching
 
 ### Troubleshooting FAQ
 
+- Commands work in some applications but not others that are supported by Caster. To fix verify that the program is not running an administrator/elevated privileges. 
+
+  Dragonfly grammars cannot interact with programs that have administrator/elevated privileges. A documented [Proof of Concept](https://github.com/dictation-toolbox/dragonfly/issues/11) work around but the project needs an active developer with C#.
+
 - Running "Configure NatLink via GUI" does not bring up the settings window - try running the program as an administrator:
+
   1. Open an administrator command prompt by searching for "cmd" in start and either right click, run as administrator or ctrl-shift-enter.
   2. Change directory to the folder where start_configurenatlink.py was installed. This is likely to be `C:\NatLink\NatLink\confignatlinkvocolaunimacro` so the command would be `cd C:\NatLink\NatLink\confignatlinkvocolaunimacro`.
   3. Run `python start_configurenatlink.py`.
+
 - To fix `ImportError: No module named win32con`
   Package win32con is out of date or not installed. Try `pip install pywin32`  Alternatively if the error persists use the [Windows installer](https://sourceforge.net/projects/pywin32/files/pywin32/Build%20221/pywin32-221.win32-py2.7.exe/download)
-- To fix `lost sys.stderr`
-  For Caster must use pywin32 for `system wide` features, such as registering COM objects or implementing Windows Services, then you **must** run the following command from an elevated command prompt:
+
+- To fix `lost sys.stder` use `pywin32` for `system wide` features, such as registering COM objects or implementing Windows Services. So you **must** run the following command from an elevated command prompt:
 
 > python C:\Python27\Scripts\pywin32_postinstall.py -install
 
 - To fix `ImportError: cannot import name RuleWrap`
-  You likely either have the wrong version of Dragonfly installed, or don't have it installed at all.  RuleWrap is a Dragonfly import. Try `pip uninstall dragonfly` (it's okay if it doesn't find the package) then `pip install dragonfly2`.
+
+  ​	You likely either have the wrong version of Dragonfly installed, or don't have it installed at all.  RuleWrap is a Dragonfly import. Try `pip uninstall dragonfly` (it's okay if it doesn't find the package) then `pip install dragonfly2`.
 
 ### Extra information
 
