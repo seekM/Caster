@@ -1,6 +1,6 @@
 # Caster
 
-[Caster](http://dictation-toolbox.github.io/caster/) is a collection of tools aimed at enabling programming and accessibility entirely by voice built upon the [Dragonfly](https://github.com/dictation-toolbox/dragonfly) API.
+[Caster](http://dictation-toolbox.github.io/Caster/) is a collection of tools aimed at enabling programming and accessibility entirely by voice built upon the [Dragonfly](https://github.com/dictation-toolbox/dragonfly) API.
 
 - Videos by the Caster Community.
   - [Caster Demo](https://www.youtube.com/watch?v=oIwh3z2jXD4)
@@ -22,7 +22,7 @@
     - `print to console` - `print()`
     - `open file` -  `open('filename', 'r') as f:`
 - [Contributing / How can I help?](https://github.com/synkarius/caster/blob/master/caster/doc/CONTRIBUTING.md)
-- Need support or just curious? Join our community at [![Join the chat at https://gitter.im/synkarius/caster](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/synkarius/caster?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) or [Discord](https://discord.gg/9eAAsCJ) for voice chat.
+- Need support or just curious? Join our community at [![Join the chat at https://gitter.im/synkarius/caster](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dictation-toolbox/home) or [Discord](https://discord.gg/9eAAsCJ) for voice chat.
 - The [Voice Index](http://caster.readthedocs.org/en/latest/caster/doc/readthedocs/Voice%20Index/) is a curated source of information: Videos, Blogs, Repositories, Presentations, etc related to Dragonfly, voice programming, and accessibility.
 
 # Feature List
