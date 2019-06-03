@@ -3,7 +3,7 @@ Created on Sep 1, 2015
 
 @author: synkarius
 '''
-from dragonfly import Repeat, Function, Dictation, Choice, MappingRule
+from dragonfly import Repeat, Function, Dictation, Choice, MappingRule, Pause
 
 from castervoice.lib import context, navigation, alphanumeric, textformat, text_utils
 from castervoice.lib import control, utilities
@@ -83,17 +83,17 @@ class NavigationNon(MergeRule):
             R(Key("w-up")),
         "move window":
             R(Key("a-space, r, a-space, m")),
-        "window (left | lease) [<n>]":
-            R(Key("w-left"))*Repeat(extra="n"),
-        "window (right | ross) [<n>]":
-            R(Key("w-right"))*Repeat(extra="n"),
+        "(window left | fenster links)":
+             R(Key("w-up") + Key("w-up") + Key("w-left")),
+        "(window right | fenster rechts)":
+             R(Key("w-up") + Key("w-up") + Key("w-right")),
         "monitor (left | lease) [<n>]":
             R(Key("sw-left"))*Repeat(extra="n"),
         "monitor (right | ross) [<n>]":
             R(Key("sw-right"))*Repeat(extra="n"),
         "(next | prior) window":
             R(Key("ca-tab, enter")),
-        "switch (window | windows)":
+        "(windows|fenster)":
             R(Key("ca-tab"))*Repeat(extra="n"),
         "next tab [<n>]":
             R(Key("c-pgdown"))*Repeat(extra="n"),

@@ -23,7 +23,7 @@ class Again(MergeRule):
             extras=[IntegerRefST("n", 1, 50)],
             defaults={"n": 1},
             mapping={
-                "again (<n> [(times|time)] | do)":
+                "(again|nochmal machen) (<n> [(times|time|mal)] | do)":
                     R(Function(lambda n: self._create_asynchronous(n)), show=False)
             })
 

@@ -370,6 +370,10 @@ class CCRMerger(object):
         '''update grammars'''
         self._add_grammar(base, True, negation_context)
         for rule in global_non_ccr:
+            mp = MergePair(
+                MergeInf.BOOT_NO_MERGE, MergeInf.GLOBAL, None, rule, False
+            )  # copies not made at boot time, allows user to make permanent changes  
+            self._run_filters(mp)
             self._add_grammar(rule)
         for rule in active_apps:
             self._add_grammar(rule, True, rule.get_context())

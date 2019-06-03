@@ -82,10 +82,14 @@ class HistoryRule(SelfModifyingRule):
             # It appears that the associative string (ascii_str) must be ascii, but the sequences within Playback must be Unicode.
             mapping[ascii_str] = R(
                 Playback([(sequence, delay) for sequence in sequences]),
-                rdescript="Recorded Macro: " + ascii_str)
+                rdescript="Recorded Macro: " + ascii_str)*Repeat(extra="n")
         mapping["record from history"] = R(
             Function(self.record_from_history), rdescript="Record From History")
+        mapping["historie aufnehmen"] = R(
+            Function(self.record_from_history), rdescript="Record From History")
         mapping["delete recorded macros"] = R(
+            Function(self.delete_recorded_macros), rdescript="Delete Recorded Macros")
+        mapping["loesche macros"] = R(
             Function(self.delete_recorded_macros), rdescript="Delete Recorded Macros")
         # reload with new mapping
         self.reset(mapping)

@@ -198,10 +198,14 @@ class MainRule(MergeRule):
               rdescript="Change Monitor"),
 
         # window management
-        'minimize':
-            R(Playback([(["minimize", "window"], 0.0)]), rdescript="Minimize Window"),
-        'maximize':
-            R(Playback([(["maximize", "window"], 0.0)]), rdescript="Maximize Window"),
+        '(minimize|mini alle)':
+            R(Key("w-m")),
+        '(maximize|maxi alle)':
+            R(Key("ws-m")),
+        'maxi':
+            R(Key("w-up") + Key("w-up")),
+        'mini':
+            R(Key("w-down") + Key("w-down")),
         "remax":
             R(Key("a-space/10,r/10,a-space/10,x"), rdescript="Force Maximize Window"),
 

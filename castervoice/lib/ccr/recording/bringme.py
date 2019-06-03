@@ -114,7 +114,7 @@ class BringRule(SelfModifyingRule):
         self.reset(self.mapping)
 
     mapping = {
-        "bring me <desired_item>":
+        "(bring me|hole mir) <desired_item>":
             R(Function(bring_it),
               rdescript="BringMe: Launch preconfigured program, folder or website"),
         "<launch> to bring me as <key>":
