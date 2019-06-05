@@ -8,8 +8,10 @@ import os
 import logging
 logging.basicConfig()
 
+import win32api
+
 import time, socket
-from dragonfly import (Function, Grammar, Playback, Dictation, Choice, Pause, RunCommand)
+from dragonfly import (Function, Grammar, Playback, Dictation, Choice, Pause, RunCommand, Mouse)
 from castervoice.lib.ccr.standard import SymbolSpecs
 
 
@@ -164,6 +166,10 @@ def change_monitor():
     else:
         print("This command requires SikuliX to be enabled in the settings file")
 
+def get_mouse_position():
+    x, y = win32api.GetCursorPos()
+    print x
+    print y
 
 class MainRule(MergeRule):
     @staticmethod
@@ -234,6 +240,20 @@ class MainRule(MergeRule):
               rdescript="Enable CCR rules"),
         "disable caster":
             R(Function(_NEXUS.merger.ccr_off), rdescript="Disable CCR rules"),
+            
+        "(profil wechseln |change profile)":
+            R(Mouse("[1586, 12], left:1") + Pause("50") + Key("down") + Key("down")+ Key("down")+ Key("down") + Pause("50") + Key("right") + Key("down") + Key("enter")),
+            
+        "(vokabel|vocable)":
+            R(Mouse("[1690, 12], left:1") + Pause("50") + Key("down") + Key("down")+ Key("down") + Key("enter")),
+
+        "(vokabeleditor|vocable editor)":
+            R(Mouse("[1690, 12], left:1") + Pause("50") + Key("down") + Key("down")+ Key("down") + Key("down")+ Key("enter")),
+            
+        # helper
+        "(mausposition | mouse position)":
+            R(Function(get_mouse_position)),
+            
     }
     extras = [
         IntegerRefST("n", 1, 50),
