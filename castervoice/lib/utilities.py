@@ -148,8 +148,7 @@ def remote_debug(who_called_it=None):
     except Exception:
         print("ERROR: " + who_called_it +
               " called utilities.remote_debug() but the debug server wasn't running.")
-
-
+              
 def reboot(wsr=False):
     popen_parameters = []
     if wsr:
@@ -159,7 +158,36 @@ def reboot(wsr=False):
     else:
         popen_parameters.append(settings.SETTINGS["paths"]["REBOOT_PATH"])
         popen_parameters.append(settings.SETTINGS["paths"]["ENGINE_PATH"])
+        import natlinkstatus
+        status = natlinkstatus.NatlinkStatus()
+        username = status.getUserName()
+        popen_parameters.append(username)
+    print(popen_parameters)
+    Popen(popen_parameters)
 
+def reboot_Englisch(wsr=False):
+    popen_parameters = []
+    if wsr:
+        popen_parameters.append(settings.SETTINGS["paths"]["REBOOT_PATH_WSR"])
+        popen_parameters.append(settings.SETTINGS["paths"]["WSR_PATH"])
+        # castervoice path inserted too if there's a way to wake up WSR
+    else:
+        popen_parameters.append(settings.SETTINGS["paths"]["REBOOT_PATH"])
+        popen_parameters.append(settings.SETTINGS["paths"]["ENGINE_PATH"])
+        popen_parameters.append("Englisch")
+    print(popen_parameters)
+    Popen(popen_parameters)
+
+def reboot_Deutsch(wsr=False):
+    popen_parameters = []
+    if wsr:
+        popen_parameters.append(settings.SETTINGS["paths"]["REBOOT_PATH_WSR"])
+        popen_parameters.append(settings.SETTINGS["paths"]["WSR_PATH"])
+        # castervoice path inserted too if there's a way to wake up WSR
+    else:
+        popen_parameters.append(settings.SETTINGS["paths"]["REBOOT_PATH"])
+        popen_parameters.append(settings.SETTINGS["paths"]["ENGINE_PATH"])
+        popen_parameters.append("Deutsch")
     print(popen_parameters)
     Popen(popen_parameters)
 

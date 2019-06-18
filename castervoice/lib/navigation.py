@@ -211,7 +211,7 @@ def right_up(nexus):
 
 
 def wheel_scroll(direction, nnavi500):
-    amount = 120
+    amount = 800
     if direction != "up":
         amount = amount* -1
     for i in xrange(1, abs(nnavi500) + 1):

@@ -196,7 +196,7 @@ class MainRule(MergeRule):
               rdescript="Core: Update dragonfly2 and restart Caster"),
 
         # hardware management
-        "volume <volume_mode> [<n>]":
+        "(volume|lautstaerke) <volume_mode> [<n>]":
             R(Function(navigation.volume_control, extra={'n', 'volume_mode'}),
               rdescript="Volume Control"),
         "change monitor":
